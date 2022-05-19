@@ -6,7 +6,7 @@ export default function Main(props) {
   });
 }
 
-const Todo = ({ todo, checkTodos }) => {
+const Todo = ({ todo, checkTodos}) => {
   function handleClick() {
     checkTodos(todo.id);
   }

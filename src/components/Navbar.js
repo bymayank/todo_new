@@ -33,11 +33,6 @@ export default function Navbar(props) {
                 Pending
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/completed">
-                Completed
-              </Link>
-            </li>
           </ul>
         </div>
         <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>

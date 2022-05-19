@@ -3,6 +3,7 @@ import React from "react";
 export default function Home(props) {
   
   return (
+    <>
     <div className="input-group mb-3">
       <input
         ref={props.todoRef}
@@ -20,7 +21,8 @@ export default function Home(props) {
       >
         Add
       </button>
-      <div>{props.todos.filter((todo) => !todo.status).length} Task left</div>
     </div>
+    <div>{props.todos.filter((todo) => !todo.status).length} Task left</div>
+    </>
   );
 }
