@@ -1,8 +1,8 @@
 import React from "react";
 
 export default function Main(props) {
-  return props.todos.map((todo) => {
-    return <Todo checkTodos={props.checkTodo} todo={todo} />;
+  return props.todos.map((todo, index) => {
+    return <Todo key={index} checkTodos={props.checkTodo} todo={todo} />;
   });
 }
 

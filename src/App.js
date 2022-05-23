@@ -9,6 +9,16 @@ function App() {
   const [todo, setTodo] = useState([]);
   const [mode, setMode] = useState("light");
   const todoRef = useRef();
+  const [disabled, setDisabled] = useState(true)
+  
+  function onChange(e){
+    if(e.target.value.length===0){
+      setDisabled(true);
+    }
+    else{
+      setDisabled(false);
+    }
+  }
 
   function toggle() {
     if (mode === "light") {
@@ -36,6 +46,7 @@ function App() {
       return [...prevTask, { id: date, task: task, status: false }];
     });
     todoRef.current.value = null;
+    setDisabled(true);
   }
 
   function removeTodo() {
@@ -48,7 +59,7 @@ function App() {
       <BrowserRouter>
       <Navbar mode={mode} toggle={toggle}/>
         <Routes>
-          <Route path="/" element={<Home todos={todo} todoRef={todoRef} addTodo={addTodo}/>} />
+          <Route path="/" element={<Home todos={todo} todoRef={todoRef} addTodo={addTodo} disabled={disabled} onChange={onChange}/>} />
           <Route path="/pending" element={<Pending todos={todo} checkTodo={checkTodo} removeTodo={removeTodo}/>} />
         </Routes>
       </BrowserRouter>
