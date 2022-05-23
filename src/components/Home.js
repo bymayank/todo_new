@@ -19,8 +19,9 @@ export default function Home(props) {
     <>
     <div className="input-group mb-3">
       <input
-        ref={props.todoRef}
-        onChange={props.onChange}
+        // ref={props.todoRef}
+        value={props.text}
+        onChange={(e)=>{props.setText(e.target.value)}}
         type="text"
         className="form-control"
         placeholder="What's up for the Day!!!"
@@ -31,7 +32,7 @@ export default function Home(props) {
 
       <button
         onClick={props.addTodo}
-        disabled={props.disabled}
+        disabled={!props.text}
         className="btn btn-outline-secondary"
         type="button"
         id="button-addon2"
