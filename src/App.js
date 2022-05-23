@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Pending from "./components/Pending";
 import Home from "./components/Home";
@@ -20,6 +20,7 @@ function App() {
   //     setDisabled(false);
   //   }
   // }
+  useEffect(()=>{document.title=`Total tasks is ${todo.length}`});
 
   function toggle() {
     if (mode === "light") {
